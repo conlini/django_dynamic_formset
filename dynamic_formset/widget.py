@@ -1,5 +1,6 @@
 from django.forms.widgets import Widget
 from django.utils.html import format_html
+from django.forms.utils import flatatt
 
 
 class AnchorWidget(Widget):
@@ -13,4 +14,4 @@ class AnchorWidget(Widget):
         if self.href:
             final_attr['href'] = self.href
 
-        return format_html("<a{0}>{1}</a>", final_attr, self.title)
+        return format_html("<a{0}>{1}</a>", flatatt(final_attr), self.title)
